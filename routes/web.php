@@ -27,3 +27,24 @@ Route::prefix('dp')->group(function () {
     Route::get('/course/{id}','CourseController@get_by_id');
     Route::get('/course/t/{teacher}','CourseController@list_by_teacher');
 });
+
+Route::prefix('homework')->group(function () {
+   Route::get('/',function () {
+       return view('hw/index');
+   });
+   Route::get('/list',function () {
+      return view('hw/list');
+   });
+});
+
+Route::prefix('blog')->group(function () {
+    Route::get('/','BlogController@index');
+    Route::get('/list','BlogContoller@list');
+    Route::get('/add','BlogController@add');
+    Route::get('/update','BlogController@update');
+    Route::get('/delete','BlogController@delete');
+});
+
+Route::prefix('jae')->group(function () {
+    Route::get('/','JAEController@index');
+});
