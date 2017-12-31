@@ -13,4 +13,12 @@ class Course extends Model
     protected $fillable = [
         'teacher', 'language', 'title','lesson_nums'
     ];
+    public function teacher()
+    {
+        return $this->belongsTo('App\Teacher');
+    }
+    public function lessons()
+    {
+        return $this->hasMany('App\Lesson');
+    }
 }
